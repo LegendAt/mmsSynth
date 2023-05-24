@@ -8,6 +8,8 @@
 #include "base/source/fstreamer.h"
 #include "pluginterfaces/vst/ivstparameterchanges.h"
 
+#include "public.sdk/source/vst/hosting/eventlist.h"
+
 using namespace Steinberg;
 
 namespace MyCompanyName {
@@ -68,24 +70,81 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 {
 	//--- First : Read inputs parameter changes-----------
 
-    /*if (data.inputParameterChanges)
-    {
-        int32 numParamsChanged = data.inputParameterChanges->getParameterCount ();
-        for (int32 index = 0; index < numParamsChanged; index++)
-        {
-            if (auto* paramQueue = data.inputParameterChanges->getParameterData (index))
-            {
-                Vst::ParamValue value;
-                int32 sampleOffset;
-                int32 numPoints = paramQueue->getPointCount ();
-                switch (paramQueue->getParameterId ())
-                {
+	if (data.inputParameterChanges)
+	{
+		int32 numParamsChanged = data.inputParameterChanges->getParameterCount();
+		for (int32 index = 0; index < numParamsChanged; index++)
+		{
+			if (auto* paramQueue = data.inputParameterChanges->getParameterData(index))
+			{
+				Vst::ParamValue value;
+				int32 sampleOffset;
+				int32 numPoints = paramQueue->getPointCount();
+				paramQueue->getPoint(numPoints - 1, sampleOffset, value);
+				switch (paramQueue->getParameterId())
+				{
+				case kWaveLevel:
+					fWaveLevel = (float)value;
+					break;
+				case kWaveType:
+					fWaveType = (float)value;
+					break;
+				case kLfoFreq:
+					fLfoFreq = (float)value;
+					fLfoAngle = PI2 * fLfoFreq / data.processContext->sampleRate;
 				}
 			}
 		}
-	}*/
+	}
 	
+	
+
+	Vst::IEventList* events = data.inputEvents;
+	if (events != NULL) {
+		int32 numEvent = events->getEventCount();
+		for (int32 i = 0; i < numEvent; i++) {
+			Vst::Event event;
+			if (events->getEvent(i, event) == kResultOk) {
+				switch (event.type) {
+				case Vst::Event::kNoteOnEvent:
+					// Waveform
+					fFrequency = 440.0f * pow(2.0f, ((float)event.noteOn.pitch - 69) / 12.0f);
+					fDeltaAngle = PI2 * fFrequency / data.processContext->sampleRate;
+					fVolume = 0.6f;
+					fWavePhase = 0.f;
+					// LFO
+					fLfoPhase = 0.f;
+					// Envelopes 
+					fTimer = 0.0f;
+
+					break;
+				case Vst::Event::kNoteOffEvent:
+					fVolume = 0.f;
+					break;
+				}
+			}
+		}
+	}
+
+
 	//--- Here you have to implement your processing
+	Vst::Sample32* outL = data.outputs[0].channelBuffers32[0];
+	Vst::Sample32* outR = data.outputs[0].channelBuffers32[1];
+
+	for (int32 i = 0; i < data.numSamples; i++) {
+
+		outL[i] = fWaveLevel * generate(fWavePhase);
+		if (true) {
+			outL[i] += fLfoLevel * sin(fLfoPhase);
+		}
+		outL[i] *= fVolume;
+		outR[i] = outL[i];
+
+		//Update Phase 
+		fWavePhase += fDeltaAngle;
+		fLfoPhase += fLfoAngle;
+	}
+
 
 	return kResultOk;
 }
@@ -131,3 +190,59 @@ tresult PLUGIN_API MMS_SynthProcessor::getState (IBStream* state)
 
 //------------------------------------------------------------------------
 } // namespace MyCompanyName
+
+// Waveform Generation Functions 
+
+float rect(float phase) {
+
+	if (phase <= PI2 / 2) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+float tri(float phase)
+{
+	if (phase < PI2 / 2) {
+		return (1 - (phase * 1 / PI2));
+	}
+	else {
+		return (-1 + (phase * 1 / PI2));
+	}
+}
+
+float saw(float phase)
+{
+
+	return 1 - (phase * 2 / PI2);
+}
+
+float generate(float phase) {
+
+	//for testing before GUI
+	int type = 0;
+	if (phase >= PI2) {
+		phase = phase - trunc(phase / PI2) * PI2;
+	}
+	switch (type)
+	{
+	case 0:
+		return sin(phase);
+		break;
+	case 1:
+		return rect(phase);
+		break;
+	case 2:
+		return tri(phase);
+		break;
+	case 3:
+		return saw(phase);
+		break;
+	default:
+		return 0.f;
+		break;
+	}
+
+}

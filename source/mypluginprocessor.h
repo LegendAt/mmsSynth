@@ -5,6 +5,7 @@
 #pragma once
 
 #include "public.sdk/source/vst/vstaudioeffect.h"
+#include "myplugincids.h"
 
 namespace MyCompanyName {
 
@@ -51,7 +52,35 @@ public:
 //------------------------------------------------------------------------
 protected:
 
+	// Master Volume
+	float fVolume = 0.f;
+	// Wave Generation
+	float fWaveType = default_WaveType;
+	float fWaveLevel = default_WaveLevel * 0.8f;
+	float fWavePhase = 0.f;
+	float fFrequency = 0.f;
+	float fDeltaAngle = 0.f;
+	// LFO
+	float fLfoLevel = default_LfoLevel * 0.2f;
+	float fLfoFreq = default_LfoFreq * 20.0f;
+	float fLfoAngle = 0.0f;
+	float fLfoPhase = 0.0f;
+	bool bLfoActive = default_LfoActive;
+	// Timer
+	float fTimer = 0.0f;
+	float fTimestep = 0.0f;
+	// LevelEnvelope
+	float fLevelAttack = default_LevelAttack;
 };
+#define PI2  (3.14159265f*2.f)
 
 //------------------------------------------------------------------------
 } // namespace MyCompanyName
+
+
+
+// Waveform generation functions
+float generate(float phase);
+float rect(float phase);
+float tri(float phase);
+float saw(float phase);
