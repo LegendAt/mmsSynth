@@ -55,11 +55,10 @@ enum GainParams : Steinberg::Vst::ParamID {
 #define default_WaveType 0
 #define default_WaveLevel  1
 // Level Envelope
-#define default_LevelAttack 0
-#define default_LevelDecay 0
-#define default_LevelSustain 1
-#define default_LevelRelease 0
-#define default_LevelActive 0 
+#define default_LevelAttack 0.5
+#define default_LevelDecay 0.5
+#define default_LevelSustain 0.5
+#define default_LevelRelease 0.5
 // Filter Envelope
 #define default_FilterAttack 0
 #define default_FilterDecay 0
@@ -73,6 +72,6 @@ enum GainParams : Steinberg::Vst::ParamID {
 // LFO
 #define default_LfoFreq 0.2
 #define default_LfoLevel 1
-#define default_LfoActive 0
+#define default_LfoActive true
 // Frequency Analyser
 #define default_FaActive = 0
