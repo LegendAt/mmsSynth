@@ -48,12 +48,18 @@ public:
 	/** For persistence */
 	Steinberg::tresult PLUGIN_API setState (Steinberg::IBStream* state) SMTG_OVERRIDE;
 	Steinberg::tresult PLUGIN_API getState (Steinberg::IBStream* state) SMTG_OVERRIDE;
+	float env(int sample);
+	float generate(float phase);
+	float rect(float phase);
+	float tri(float phase);
+	float saw(float phase);
 
 //------------------------------------------------------------------------
 protected:
 
 	// Master Volume
 	float fVolume = 0.f;
+	bool noteOn = false;
 	// Wave Generation
 	float fWaveType = default_WaveType;
 	float fWaveLevel = default_WaveLevel * 0.8f;
@@ -66,13 +72,19 @@ protected:
 	float fLfoAngle = 0.0f;
 	float fLfoPhase = 0.0f;
 	bool bLfoActive = default_LfoActive;
-	// Timer
-	float fTimer = 0.0f;
-	float fTimestep = 0.0f;
 	// LevelEnvelope
-	float fLevelAttack = default_LevelAttack;
+	float fLevelAttack = default_LevelAttack*1000;
+	float fLevelAttackDelta = 0;
+	float fLevelDecay = default_LevelDecay*1000;
+	float fLevelDecayDelta = 0;
+	float fLevelSustain = default_LevelSustain;
+	float fLevelRelease = default_LevelRelease*1000;
+	float fLevelReleaseDelta = 0;
+	int iSampleCounter = 0;
+	
 };
 #define PI2  (3.14159265f*2.f)
+
 
 //------------------------------------------------------------------------
 } // namespace MyCompanyName
@@ -80,7 +92,3 @@ protected:
 
 
 // Waveform generation functions
-float generate(float phase);
-float rect(float phase);
-float tri(float phase);
-float saw(float phase);
