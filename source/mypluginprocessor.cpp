@@ -86,26 +86,33 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 				switch (paramQueue->getParameterId())
 				{
 				case kWaveLevel:
-					fWaveLevel = (float)value;
+					fWaveLevel = (float)value*0.8;
 					break;
 				case kWaveType:
-					fWaveType = (float)value;
+					iWaveType = (int) (value*3);
 					break;
-				case kLfoFreq:
-					fLfoFreq = (float)value;
-					fLfoAngle = PI2 * fLfoFreq / data.processContext->sampleRate;
-					break;
+
 				case kLevelAttack:
-					fLevelAttack = (float)value*1000;//0 to 1 times 1000ms
+					fLevelAttack = (float)value*500;//0 to 1 times 1000ms
 					break;
 				case kLevelDecay:
-					fLevelDecay = (float)value * 1000;//0 to 1 times 1000ms
+					fLevelDecay = (float)value * 500;//0 to 1 times 1000ms
 					break;
 				case kLevelSustain:
 					fLevelSustain = (float)value;//0 to 1 times 1000ms
 					break;
 				case kLevelRelease:
-					fLevelRelease = (float)value * 1000;//0 to 1 times 1000ms
+					fLevelRelease = (float)value * 500;//0 to 1 times 1000ms
+					break;
+				case kLfoActive:
+					bLfoActive = (bool)value;
+					break;				
+				case kLfoFreq:
+					fLfoFreq = (float)value*20;
+					fLfoAngle = PI2 * fLfoFreq / data.processContext->sampleRate;
+					break;
+				case kLfoLevel:
+					fLfoLevel = (float)value*0,2;
 					break;
 				}
 			}
@@ -207,7 +214,82 @@ tresult PLUGIN_API MMS_SynthProcessor::setState (IBStream* state)
 {
 	// called when we load a preset, the model has to be reloaded
 	IBStreamer streamer (state, kLittleEndian);
-	
+
+	float fval;
+	int16 ival;
+	bool bval;
+
+	if (streamer.readInt16(ival) == false) {
+		return kResultFalse;
+	}
+	iWaveType = ival;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fWaveLevel = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fLevelAttack = fval;
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fLevelDecay = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fLevelSustain = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fLevelRelease = fval;
+
+	/*
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterAttack = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterDecay = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterSustain = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterRelease = fval;
+
+	if (streamer.readInt16(ival) == false) {
+		return kResultFalse;
+	}
+	iFilterType = ival;
+
+	*/
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fLfoFreq = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fLfoLevel = fval;
+
+	if (streamer.readBool(bval) == false) {
+		return kResultFalse;
+	}
+	bLfoActive = bval;
+
 	return kResultOk;
 }
 
@@ -216,6 +298,24 @@ tresult PLUGIN_API MMS_SynthProcessor::getState (IBStream* state)
 {
 	// here we need to save the model
 	IBStreamer streamer (state, kLittleEndian);
+	streamer.writeInt16(iWaveType);
+	streamer.writeFloat(fWaveLevel);
+	streamer.writeFloat(fLevelAttack);
+	streamer.writeFloat(fLevelDecay);
+	streamer.writeFloat(fLevelSustain);
+	streamer.writeFloat(fLevelRelease);
+	/*
+	streamer.writeFloat(fWaveLevel);
+	streamer.writeFloat(fWaveLevel);
+	streamer.writeFloat(fWaveLevel);
+	streamer.writeFloat(fWaveLevel);
+	streamer.writeInt16(iWaveType);
+	streamer.writeFloat(fWaveLevel);
+	streamer.writeFloat(fWaveLevel);
+	*/
+	streamer.writeFloat(fLfoFreq);
+	streamer.writeFloat(fLfoLevel);
+	streamer.writeBool(bLfoActive);
 
 	return kResultOk;
 }
@@ -258,7 +358,7 @@ float MMS_SynthProcessor::generate(float phase)
 {
 	
 	//for testing before GUI
-	int type = 0;
+	int16 type = iWaveType;
 
 	if (phase >= PI2) {
 		phase = phase - trunc(phase / PI2) * PI2;
