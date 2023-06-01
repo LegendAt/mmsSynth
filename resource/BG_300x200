@@ -1,0 +1,72 @@
+{
+	"vstgui-ui-description": {
+		"version": "1",
+		"bitmaps": {
+			"BG_300x200": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\BG_300x200.png"
+			}
+		},
+		"fonts": {},
+		"colors": {},
+		"custom": {
+			"FocusDrawing": {},
+			"VST3Editor": {
+				"Path": "C:\\Users\\kunst\\OneDrive\\Dokumente\\MMS\\mmsSynth\\resource\\BG_300x200"
+			},
+			"UIGridController": {
+				"Grids": "1x 1,5x 5,10x 10,12x 12,15x 15"
+			},
+			"UITemplateController": {
+				"SelectedTemplate": "view"
+			},
+			"UIEditController": {
+				"EditViewScale": "1",
+				"EditorSize": "0, 0, 1340, 705",
+				"SplitViewSize_0_0": "0.8085419734904271127362562765483744442463",
+				"SplitViewSize_0_1": "0.1620029455081001545924124229713925160468",
+				"SplitViewSize_1_0": "0.4845360824742268035514314306055894121528",
+				"SplitViewSize_1_1": "0.508100147275404978586266224738210439682",
+				"SplitViewSize_2_0": "0.8656716417910447214367763990594539791346",
+				"SplitViewSize_2_1": "0.130597014925373122729013175558065995574",
+				"TabSwitchValue": "4",
+				"Version": "1"
+			},
+			"UIAttributesController": {},
+			"UIViewCreatorDataSource": {
+				"SelectedRow": "7"
+			},
+			"UIBitmapsDataSource": {
+				"SelectedRow": "0"
+			}
+		},
+		"templates": {
+			"view": {
+				"attributes": {
+					"background-color": "~ BlackCColor",
+					"background-color-draw-style": "filled and stroked",
+					"class": "CViewContainer",
+					"mouse-enabled": "true",
+					"opacity": "1",
+					"origin": "0, 0",
+					"size": "300, 300",
+					"transparent": "false",
+					"wants-focus": "false"
+				},
+				"children": {
+					"CView": {
+						"attributes": {
+							"bitmap": "BG_300x200",
+							"class": "CView",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "0, 0",
+							"size": "300, 200",
+							"transparent": "false",
+							"wants-focus": "false"
+						}
+					}
+				}
+			}
+		}
+	}
+}
