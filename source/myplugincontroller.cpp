@@ -6,6 +6,9 @@
 #include "myplugincids.h"
 #include "vstgui/plugin-bindings/vst3editor.h"
 
+#include "pluginterfaces/base/ibstream.h"
+#include "base/source/fstreamer.h"
+
 using namespace Steinberg;
 
 namespace MyCompanyName {
@@ -26,6 +29,18 @@ tresult PLUGIN_API MMS_SynthController::initialize (FUnknown* context)
 
 	// Here you could register some parameters
 
+	setKnobMode(Vst::kLinearMode);
+	parameters.addParameter(STR16("OSC_Type"), nullptr, 3, default_WaveType, Vst::ParameterInfo::kCanAutomate, kWaveType);
+	parameters.addParameter(STR16("OSC_Level"), nullptr, 0, default_WaveLevel, Vst::ParameterInfo::kCanAutomate, kWaveLevel);
+	parameters.addParameter(STR16("LevelAttack"), nullptr, 0, default_LevelAttack , Vst::ParameterInfo::kCanAutomate, kLevelAttack);
+	parameters.addParameter(STR16("LevelDecay"), nullptr, 0, default_LevelDecay, Vst::ParameterInfo::kCanAutomate, kLevelDecay);
+	parameters.addParameter(STR16("LevelSustain"), nullptr, 0, default_LevelSustain, Vst::ParameterInfo::kCanAutomate, kLevelSustain);
+	parameters.addParameter(STR16("LevelRelease"), nullptr, 0, default_LevelRelease, Vst::ParameterInfo::kCanAutomate, kLevelRelease);
+	//parameters.addParameter(STR16("LevelActive"), nullptr, 0, default_WaveType, Vst::ParameterInfo::kCanAutomate, kLevelActive);
+	parameters.addParameter(STR16("LFO_Freq"), nullptr, 0, default_LfoFreq, Vst::ParameterInfo::kCanAutomate, kLfoFreq);
+	parameters.addParameter(STR16("LFO_Level"), nullptr, 0, default_LfoLevel, Vst::ParameterInfo::kCanAutomate, kLfoLevel);
+	parameters.addParameter(STR16("LFO_Active"), nullptr, 0, default_LfoActive, Vst::ParameterInfo::kCanAutomate, kLfoActive);
+
 	return result;
 }
 
@@ -44,6 +59,84 @@ tresult PLUGIN_API MMS_SynthController::setComponentState (IBStream* state)
 	// Here you get the state of the component (Processor part)
 	if (!state)
 		return kResultFalse;
+	IBStreamer streamer(state, kLittleEndian);
+
+	float fval;
+	int16 ival;
+	bool bval;
+
+	if (streamer.readInt16(ival) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kWaveType, ival);
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kWaveLevel, fval);
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLevelAttack, fval);
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLevelDecay, fval);
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLevelSustain, fval);
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLevelRelease, fval);
+
+	/*
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterAttack = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterDecay = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterSustain = fval;
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	fFilterRelease = fval;
+
+	if (streamer.readInt16(ival) == false) {
+		return kResultFalse;
+	}
+	iFilterType = ival;
+
+	*/
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLfoFreq, fval);
+
+	if (streamer.readFloat(fval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLfoLevel, fval);
+
+	if (streamer.readBool(bval) == false) {
+		return kResultFalse;
+	}
+	setParamNormalized(kLfoActive, bval);
+
 
 	return kResultOk;
 }

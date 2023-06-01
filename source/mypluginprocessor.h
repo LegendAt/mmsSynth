@@ -6,6 +6,7 @@
 
 #include "public.sdk/source/vst/vstaudioeffect.h"
 #include "myplugincids.h"
+using namespace Steinberg;
 
 namespace MyCompanyName {
 
@@ -61,7 +62,7 @@ protected:
 	float fVolume = 0.f;
 	bool noteOn = false;
 	// Wave Generation
-	float fWaveType = default_WaveType;
+	int16 iWaveType = default_WaveType;
 	float fWaveLevel = default_WaveLevel * 0.8f;
 	float fWavePhase = 0.f;
 	float fFrequency = 0.f;
