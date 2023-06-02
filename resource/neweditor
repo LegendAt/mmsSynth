@@ -1,0 +1,498 @@
+{
+	"vstgui-ui-description": {
+		"version": "1",
+		"bitmaps": {
+			"DrehK_WaveForm_67x67_7": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\DrehK_WaveForm_67x67_7.png"
+			},
+			"Envelo_at_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Envelo_at_45x45_11.png"
+			},
+			"Envelo_de_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Envelo_de_45x45_11.png"
+			},
+			"Envelo_re_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Envelo_re_45x45_11.png"
+			},
+			"Envelo_su_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Envelo_su_45x45_11.png"
+			},
+			"FilterEn_at_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\FilterEn_at_45x45_11.png"
+			},
+			"FilterEn_de_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\FilterEn_de_45x45_11.png"
+			},
+			"FilterEn_rel_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\FilterEn_rel_45x45_11.png"
+			},
+			"FilterEn_sus_45x45_11": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\FilterEn_sus_45x45_11.png"
+			},
+			"Filter_Bypass_35x35_2": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Filter_Bypass_35x35_2.png"
+			},
+			"Filter_Level_35x35_3": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Filter_Level_35x35_3.png"
+			},
+			"Filter_Lower_35x35_3": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Filter_Lower_35x35_3.png"
+			},
+			"Filter_Upper_35x35_3": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Filter_Upper_35x35_3.png"
+			},
+			"LFO_Bypass_35x35_2": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\LFO_Bypass_35x35_2.png"
+			},
+			"LFO_Dreh_50x50_33": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\LFO_Dreh_50x50_33.png"
+			},
+			"LFO_Dreh_50x50_33_1": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\LFO_Dreh_50x50_33_1.png"
+			},
+			"Vol_Dreh_80x80_33": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\Vol_Dreh_80x80_33.png"
+			},
+			"newBG_800x700_2": {
+				"path": "C:\\Users\\kunst\\Downloads\\MMS-20230531T050602Z-001\\MMS\\Final_Project\\newBG_800x700_2.png"
+			}
+		},
+		"fonts": {},
+		"colors": {},
+		"control-tags": {},
+		"custom": {
+			"FocusDrawing": {},
+			"VST3Editor": {
+				"Path": "C:\\Users\\kunst\\OneDrive\\Dokumente\\MMS\\mmsSynth\\resource\\neweditor"
+			},
+			"UIGridController": {
+				"Grids": "1x 1,5x 5,10x 10,12x 12,15x 15"
+			},
+			"UITemplateController": {
+				"SelectedTemplate": "view"
+			},
+			"UIEditController": {
+				"EditViewScale": "2",
+				"EditorSize": "0, 0, 1340, 706",
+				"SplitViewSize_0_0": "0.8088235294117647189438002897077240049839",
+				"SplitViewSize_0_1": "0.1617647058823529493398751810673275031149",
+				"SplitViewSize_1_0": "0.4845588235294117640528099855146137997508",
+				"SplitViewSize_1_1": "0.5080882352941176183236393626430071890354",
+				"SplitViewSize_2_0": "0.7242537313432836354465393924328964203596",
+				"SplitViewSize_2_1": "0.2720149253731343197415526447002775967121",
+				"TabSwitchValue": "4",
+				"Version": "1"
+			},
+			"UIAttributesController": {},
+			"UIViewCreatorDataSource": {
+				"SelectedRow": "0"
+			},
+			"UIBitmapsDataSource": {
+				"SelectedRow": "2"
+			},
+			"UITagsDataSource": {
+				"SelectedRow": "-1"
+			}
+		},
+		"templates": {
+			"view": {
+				"attributes": {
+					"background-color": "~ BlackCColor",
+					"background-color-draw-style": "filled and stroked",
+					"class": "CViewContainer",
+					"mouse-enabled": "true",
+					"opacity": "1",
+					"origin": "0, 0",
+					"size": "800, 700",
+					"transparent": "false",
+					"wants-focus": "false"
+				},
+				"children": {
+					"CView": {
+						"attributes": {
+							"bitmap": "newBG_800x700_2",
+							"class": "CView",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "0, 0",
+							"size": "800, 700",
+							"transparent": "false",
+							"wants-focus": "false"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "DrehK_WaveForm_67x67_7",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "67",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "99, 170",
+							"size": "67, 67",
+							"sub-pixmaps": "7",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "280",
+							"angle-start": "135",
+							"bitmap": "Vol_Dreh_80x80_33",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "80",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "240, 141",
+							"size": "80, 80",
+							"sub-pixmaps": "33",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "280",
+							"angle-start": "135",
+							"bitmap": "LFO_Dreh_50x50_33_1",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "50",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "107, 368",
+							"size": "50, 50",
+							"sub-pixmaps": "33",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "280",
+							"angle-start": "135",
+							"bitmap": "LFO_Dreh_50x50_33",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "50",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "185, 368",
+							"size": "50, 50",
+							"sub-pixmaps": "33",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "LFO_Bypass_35x35_2",
+							"class": "CVerticalSwitch",
+							"default-value": "0",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "275, 380",
+							"size": "35, 35",
+							"sub-pixmaps": "2",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "Filter_Bypass_35x35_2",
+							"class": "CVerticalSwitch",
+							"default-value": "0",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "660, 380",
+							"size": "35, 35",
+							"sub-pixmaps": "2",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "Filter_Lower_35x35_3",
+							"class": "CVerticalSwitch",
+							"default-value": "0",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "450, 368",
+							"size": "35, 35",
+							"sub-pixmaps": "3",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "Filter_Upper_35x35_3",
+							"class": "CVerticalSwitch",
+							"default-value": "0",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "517, 368",
+							"size": "35, 35",
+							"sub-pixmaps": "3",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "Filter_Level_35x35_3",
+							"class": "CVerticalSwitch",
+							"default-value": "0",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "592, 368",
+							"size": "35, 35",
+							"sub-pixmaps": "3",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "FilterEn_rel_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "662, 554",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "FilterEn_sus_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "592, 554",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "FilterEn_de_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "522, 554",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "FilterEn_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "455, 554",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "92, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_de_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "157, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_su_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "222, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_re_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "287, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					}
+				}
+			}
+		}
+	}
+}
