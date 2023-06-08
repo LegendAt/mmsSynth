@@ -30,7 +30,7 @@ tresult PLUGIN_API MMS_SynthController::initialize (FUnknown* context)
 	// Here you could register some parameters
 
 	setKnobMode(Vst::kLinearMode);
-	parameters.addParameter(STR16("OSC_Type"), nullptr, 3, default_WaveType, Vst::ParameterInfo::kCanAutomate, kWaveType);
+	parameters.addParameter(STR16("OSC_Type"), nullptr, 0, default_WaveType, Vst::ParameterInfo::kCanAutomate, kWaveType);
 	parameters.addParameter(STR16("OSC_Level"), nullptr, 0, default_WaveLevel, Vst::ParameterInfo::kCanAutomate, kWaveLevel);
 	parameters.addParameter(STR16("LevelAttack"), nullptr, 0, default_LevelAttack , Vst::ParameterInfo::kCanAutomate, kLevelAttack);
 	parameters.addParameter(STR16("LevelDecay"), nullptr, 0, default_LevelDecay, Vst::ParameterInfo::kCanAutomate, kLevelDecay);
@@ -62,13 +62,13 @@ tresult PLUGIN_API MMS_SynthController::setComponentState (IBStream* state)
 	IBStreamer streamer(state, kLittleEndian);
 
 	float fval;
-	int16 ival;
+	//int16 ival;
 	bool bval;
 
-	if (streamer.readInt16(ival) == false) {
+	if (streamer.readFloat(fval) == false) {
 		return kResultFalse;
 	}
-	setParamNormalized(kWaveType, ival);
+	setParamNormalized(kWaveType, fval);
 
 	if (streamer.readFloat(fval) == false) {
 		return kResultFalse;

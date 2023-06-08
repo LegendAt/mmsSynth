@@ -86,23 +86,23 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 				switch (paramQueue->getParameterId())
 				{
 				case kWaveLevel:
-					fWaveLevel = (float)value*0.8;
+					fWaveLevel = (float)value;
 					break;
 				case kWaveType:
-					iWaveType = (int) (value*3);
+					iWaveType = float (value);
 					break;
 
 				case kLevelAttack:
-					fLevelAttack = (float)value*500;//0 to 1 times 1000ms
+					fLevelAttack = (float)value*500;//0 to 1 times 500ms
 					break;
 				case kLevelDecay:
-					fLevelDecay = (float)value * 500;//0 to 1 times 1000ms
+					fLevelDecay = (float)value * 500;//0 to 1 times 500ms
 					break;
 				case kLevelSustain:
-					fLevelSustain = (float)value;//0 to 1 times 1000ms
+					fLevelSustain = (float)value;
 					break;
 				case kLevelRelease:
-					fLevelRelease = (float)value * 500;//0 to 1 times 1000ms
+					fLevelRelease = (float)value * 500;//0 to 1 times 500ms
 					break;
 				case kLfoActive:
 					bLfoActive = (bool)value;
@@ -112,7 +112,7 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 					fLfoAngle = PI2 * fLfoFreq / data.processContext->sampleRate;
 					break;
 				case kLfoLevel:
-					fLfoLevel = (float)value*0,2;
+					fLfoLevel = (float)value*0.5;
 					break;
 				}
 			}
@@ -138,7 +138,8 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 					fVolume = 0.6f;
 					fWavePhase = 0.f;
 					// LFO
-					fLfoPhase = 0.f;
+					fLfoAngle = PI2*fLfoFreq /  data.processContext->sampleRate;
+					//fLfoPhase = 0.f;
 					// Envelopes 
 					iSampleCounter = 0;
 					noteOn = true;
@@ -164,7 +165,7 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 	for (int32 i = 0; i < data.numSamples; i++) {
 
 		waveSamples[i] = fWaveLevel * generate(fWavePhase);
-		lfoSamples[i] = fLfoLevel * sin(fLfoPhase);
+		lfoSamples[i] =0.5+ ( fLfoLevel *sin(fLfoPhase));
 		envSamples[i] = env(iSampleCounter);
 		
 		
@@ -178,8 +179,8 @@ tresult PLUGIN_API MMS_SynthProcessor::process (Vst::ProcessData& data)
 
 
 		outL[i] = fVolume *  (waveSamples[i] * envSamples[i]);
-		if (bLfoActive) {
-			outL[i] += lfoSamples[i];
+		if (!bLfoActive) {
+			outL[i] *= lfoSamples[i];
 		}
 		outR[i] = outL[i];
 	}
@@ -216,13 +217,13 @@ tresult PLUGIN_API MMS_SynthProcessor::setState (IBStream* state)
 	IBStreamer streamer (state, kLittleEndian);
 
 	float fval;
-	int16 ival;
+	//int16 ival;
 	bool bval;
 
-	if (streamer.readInt16(ival) == false) {
+	if (streamer.readFloat(fval) == false) {
 		return kResultFalse;
 	}
-	iWaveType = ival;
+	iWaveType = fval;
 
 	if (streamer.readFloat(fval) == false) {
 		return kResultFalse;
@@ -298,7 +299,7 @@ tresult PLUGIN_API MMS_SynthProcessor::getState (IBStream* state)
 {
 	// here we need to save the model
 	IBStreamer streamer (state, kLittleEndian);
-	streamer.writeInt16(iWaveType);
+	streamer.writeFloat(iWaveType);
 	streamer.writeFloat(fWaveLevel);
 	streamer.writeFloat(fLevelAttack);
 	streamer.writeFloat(fLevelDecay);
@@ -360,29 +361,24 @@ float MMS_SynthProcessor::generate(float phase)
 	//for testing before GUI
 	int16 type = iWaveType;
 
+
+
 	if (phase >= PI2) {
 		phase = phase - trunc(phase / PI2) * PI2;
 	}
-	switch (type)
-	{
-	case 0:
-		return sin(phase);
-		break;
-	case 1:
-		return rect(phase);
-		break;
-	case 2:
-		return tri(phase);
-		break;
-	case 3:
-		return saw(phase);
-		break;
-	default:
-		return 0.f;
-		break;
-	}
 
+	if(iWaveType <0.15){
+		return sin(phase);
+	}
+	if (iWaveType < 0.50) {
+		return rect(phase);
+	}
+	if (iWaveType < 0.80) {
+		return tri(phase);
+	}
+	return saw(phase);
 }
+
 float MMS_SynthProcessor::rect(float phase) {
 
 	if (phase <= PI2 / 2) {

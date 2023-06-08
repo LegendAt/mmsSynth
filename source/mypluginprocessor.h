@@ -62,13 +62,13 @@ protected:
 	float fVolume = 0.f;
 	bool noteOn = false;
 	// Wave Generation
-	int16 iWaveType = default_WaveType;
-	float fWaveLevel = default_WaveLevel * 0.8f;
+	float iWaveType = default_WaveType;
+	float fWaveLevel = default_WaveLevel * 0.5f;
 	float fWavePhase = 0.f;
 	float fFrequency = 0.f;
 	float fDeltaAngle = 0.f;
 	// LFO
-	float fLfoLevel = default_LfoLevel * 0.2f;
+	float fLfoLevel = default_LfoLevel * 0.5f;
 	float fLfoFreq = default_LfoFreq * 20.0f;
 	float fLfoAngle = 0.0f;
 	float fLfoPhase = 0.0f;
