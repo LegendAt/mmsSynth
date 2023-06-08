@@ -1,18 +1,491 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<vstgui-ui-description version="1">
-	<fonts>
-	</fonts>
-	<colors>
-	</colors>
-	<template background-color="~ BlackCColor" background-color-draw-style="filled and stroked" class="CViewContainer" mouse-enabled="true" name="view" opacity="1" origin="0, 0" size="300, 300" transparent="false" wants-focus="false"/>
-	<custom>
-		<attributes name="FocusDrawing"/>
-		<attributes Path="Z:/MMS/GitTest/mmsSynth/resource/myplugineditor.uidesc" name="VST3Editor"/>
-		<attributes Grids="1x 1,5x 5,10x 10,12x 12,15x 15" name="UIGridController"/>
-		<attributes SelectedTemplate="view" name="UITemplateController"/>
-		<attributes EditViewScale="1" EditorSize="0, 0, 500, 545" SplitViewSize_0_0="0.7495183044315992804129678006574977189302" SplitViewSize_0_1="0.2119460500963391003104163701209472492337" SplitViewSize_1_0="0.4797687861271676124097496085596503689885" SplitViewSize_1_1="0.5105973025048169411377330106915906071663" SplitViewSize_2_0="0.6400000000000000133226762955018784850836" SplitViewSize_2_1="0.3499999999999999777955395074968691915274" TabSwitchValue="0" Version="1" name="UIEditController"/>
-		<attributes name="UIAttributesController"/>
-		<attributes SelectedRow="7" name="UIViewCreatorDataSource"/>
-	</custom>
-	<bitmaps/>
-</vstgui-ui-description>
+{
+	"vstgui-ui-description": {
+		"version": "1",
+		"bitmaps": {
+			"DrehK_WaveForm_67x67_4": {
+				"path": "..\\Resources\\DrehK_WaveForm_67x67_4.png"
+			},
+			"Envelo_at_45x45_11": {
+				"path": "..\\Resources\\Envelo_at_45x45_11.png"
+			},
+			"Filter_Bypass_35x35_2plain": {
+				"path": "..\\Resources\\Filter_Bypass_35x35_2plain.png"
+			},
+			"LFO_Dreh_50x50_33_plain": {
+				"path": "..\\Resources\\LFO_Dreh_50x50_33_plain.png"
+			},
+			"OSC_VOL_80x80_33": {
+				"path": "..\\Resources\\OSC_VOL_80x80_33.png"
+			},
+			"bg800x700": {
+				"path": "..\\Resources\\bg800x700.png"
+			}
+		},
+		"fonts": {},
+		"colors": {},
+		"control-tags": {
+			"LFO_Active": "503",
+			"LFO_Freq": "501",
+			"LFO_Level": "502",
+			"LevelAttack": "201",
+			"LevelDecay": "202",
+			"LevelRelease": "204",
+			"LevelSustain": "203",
+			"OSC_Level": "101",
+			"OSC_Type": "100"
+		},
+		"custom": {
+			"FocusDrawing": {},
+			"VST3Editor": {
+				"Path": "C:\\Program Files\\Common Files\\VST3\\mmsSynth.vst3\\Contents\\Resources\\myplugineditor.uidesc"
+			},
+			"UIGridController": {
+				"Grids": "1x 1,5x 5,10x 10,12x 12,15x 15",
+				"Size": "5, 5"
+			},
+			"UITemplateController": {
+				"SelectedTemplate": "view"
+			},
+			"UIEditController": {
+				"EditViewScale": "1",
+				"EditorSize": "0, 0, 1340, 705",
+				"SplitViewSize_0_0": "0.8070692194403534802660260538686998188496",
+				"SplitViewSize_0_1": "0.1634756995581737870626426456510671414435",
+				"SplitViewSize_1_0": "0.4845360824742268035514314306055894121528",
+				"SplitViewSize_1_1": "0.508100147275404978586266224738210439682",
+				"SplitViewSize_2_0": "0.7097014925373134053288026734662707895041",
+				"SplitViewSize_2_1": "0.2865671641791044943481381324090762063861",
+				"TabSwitchValue": "4",
+				"Version": "1"
+			},
+			"UIAttributesController": {},
+			"UIViewCreatorDataSource": {
+				"SelectedRow": "30"
+			},
+			"UIBitmapsDataSource": {
+				"SelectedRow": "0"
+			}
+		},
+		"templates": {
+			"view": {
+				"attributes": {
+					"background-color": "~ BlackCColor",
+					"background-color-draw-style": "filled and stroked",
+					"class": "CViewContainer",
+					"mouse-enabled": "true",
+					"opacity": "1",
+					"origin": "0, 0",
+					"size": "800, 700",
+					"transparent": "false",
+					"wants-focus": "false"
+				},
+				"children": {
+					"CView": {
+						"attributes": {
+							"bitmap": "bg800x700",
+							"class": "CView",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "0, 0",
+							"size": "800, 700",
+							"transparent": "false",
+							"wants-focus": "false"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "DrehK_WaveForm_67x67_4",
+							"class": "CAnimKnob",
+							"control-tag": "OSC_Type",
+							"default-value": "0",
+							"height-of-one-image": "67",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "99, 170",
+							"size": "67, 67",
+							"sub-pixmaps": "4",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "OSC_VOL_80x80_33",
+							"class": "CAnimKnob",
+							"control-tag": "OSC_Level",
+							"default-value": "1",
+							"height-of-one-image": "80",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "240, 140",
+							"size": "80, 80",
+							"sub-pixmaps": "33",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "LFO_Dreh_50x50_33_plain",
+							"class": "CAnimKnob",
+							"control-tag": "LFO_Freq",
+							"default-value": "0.2",
+							"height-of-one-image": "50",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "107, 368",
+							"size": "50, 50",
+							"sub-pixmaps": "33",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "LFO_Dreh_50x50_33_plain",
+							"class": "CAnimKnob",
+							"control-tag": "LFO_Level",
+							"default-value": "1",
+							"height-of-one-image": "50",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "185, 368",
+							"size": "50, 50",
+							"sub-pixmaps": "33",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "Filter_Bypass_35x35_2plain",
+							"class": "CVerticalSwitch",
+							"control-tag": "LFO_Active",
+							"default-value": "1",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "275, 380",
+							"size": "35, 35",
+							"sub-pixmaps": "2",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CVerticalSwitch": {
+						"attributes": {
+							"bitmap": "Filter_Bypass_35x35_2plain",
+							"class": "CVerticalSwitch",
+							"default-value": "0",
+							"height-of-one-image": "35",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "657, 380",
+							"size": "35, 35",
+							"sub-pixmaps": "2",
+							"transparent": "false",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "457, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "522, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "591, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "663, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"control-tag": "LevelAttack",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "95, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"control-tag": "LevelDecay",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "158, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"control-tag": "LevelSustain",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "223, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"control-tag": "LevelRelease",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "288, 555",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "460, 370",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "530, 370",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					},
+					"CAnimKnob": {
+						"attributes": {
+							"angle-range": "270",
+							"angle-start": "135",
+							"bitmap": "Envelo_at_45x45_11",
+							"class": "CAnimKnob",
+							"default-value": "0.5",
+							"height-of-one-image": "45",
+							"inverse-bitmap": "false",
+							"max-value": "1",
+							"min-value": "0",
+							"mouse-enabled": "true",
+							"opacity": "1",
+							"origin": "600, 370",
+							"size": "45, 45",
+							"sub-pixmaps": "11",
+							"transparent": "false",
+							"value-inset": "0",
+							"wants-focus": "false",
+							"wheel-inc-value": "0.1",
+							"zoom-factor": "1.5"
+						}
+					}
+				}
+			}
+		}
+	}
+}
